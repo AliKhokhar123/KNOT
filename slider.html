@@ -4,8 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Exact Slider Replica (Left-Peek)</title>
-
+    <title>Slider</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 
     <style>
@@ -246,6 +245,21 @@
             opacity: 1;
             transform: translateY(0);
         }
+
+        @media (max-width: 768px) {
+            .slide-text {
+                top: 30px;
+                right: -40px;
+            }
+
+            .slide-text h2 {
+                font-size: 24px;
+            }
+
+            .slide-text p {
+                font-size: 13px;
+            }
+        }
     </style>
 </head>
 
@@ -322,8 +336,8 @@
             spaceBetween: -100,
             grabCursor: true,
             navigation: {
-                nextEl: '.swiper-button-next',
-                prevEl: '.swiper-button-prev',
+                prevEl: '.swiper-button-next',
+                nextEl: '.swiper-button-prev',
             },
             breakpoints: {
 
