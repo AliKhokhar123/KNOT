@@ -45,6 +45,22 @@
             opacity: 0;
             pointer-events: none;
             z-index: 6;
+            position: relative;
+            /* overflow: hidden; */
+        }
+
+        .swiper-backface-hidden .swiper-slide::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #b9d2e7;
+            z-index: 2;
+            pointer-events: none;
+            transition: opacity 0.5s ease;
+            opacity: 0;
         }
 
         .swiper-backface-hidden .swiper-slide.swiper-slide-active {
@@ -54,18 +70,27 @@
             opacity: 1;
         }
 
-        .swiper-slide-next+.swiper-slide {
-            filter: brightness(0.3);
-            transform: scale(0.8) translateY(140px);
+
+        .swiper-backface-hidden .swiper-slide.swiper-slide-next+.swiper-slide {
+            transform: translateZ(0) scale(0.8) translateY(140px);
             z-index: 7;
             opacity: 1;
         }
 
+        .swiper-backface-hidden .swiper-slide.swiper-slide-next+.swiper-slide::before {
+            opacity: 0.7;
+        }
+
+
+        /* 2. 1ST HISTORY SLIDE */
         .swiper-backface-hidden .swiper-slide.swiper-slide-next {
-            filter: brightness(0.5);
             transform: translateZ(0) translateY(60px) scale(0.9);
             z-index: 8;
             opacity: 1;
+        }
+
+        .swiper-backface-hidden .swiper-slide.swiper-slide-next::before {
+            opacity: 0.5;
         }
 
         .swiper-slide-prev {
@@ -201,6 +226,26 @@
             font-weight: bold;
             color: #ddd;
         }
+
+
+        .slide-text {
+            position: absolute;
+            top: 30px;
+            right: -130px;
+            text-align: right;
+            color: white;
+            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+            z-index: 3;
+            opacity: 0;
+            transform: translateY(10px);
+            transition: opacity 0.4s ease 0.2s, transform 0.4s ease 0.2s;
+            pointer-events: none;
+        }
+
+        .swiper-slide-active .slide-text {
+            opacity: 1;
+            transform: translateY(0);
+        }
     </style>
 </head>
 
@@ -212,28 +257,51 @@
             <div class="swiper-slide">
                 <img src="https://media.istockphoto.com/id/689376664/photo/relaxation-time-coffee-imaes.jpg?s=612x612&w=0&k=20&c=J_7pcGt5JoUDvMj_eXnQIwwAARB8aqcgeY9WiP4rVJA="
                     alt="Coffee cup" class="slide-image-fill">
+
+                <div class="slide-text">
+                    <h2>LA GALERIE</h2>
+                    <p>Revivez notre inauguration !</p>
+                </div>
             </div>
 
             <div class="swiper-slide">
-                <div class="slide-content">
-                    <img src="https://media.istockphoto.com/id/689376618/photo/relaxation-time-coffee-imaes.jpg?s=612x612&w=0&k=20&c=hK6Ufny9ObUtwsgGCI0oGykTZYgGjqmyNJ7Rq7cjtYI="
-                        class="slide-image">
+                <img src="https://media.istockphoto.com/id/689376618/photo/relaxation-time-coffee-imaes.jpg?s=612x612&w=0&k=20&c=hK6Ufny9ObUtwsgGCI0oGykTZYgGjqmyNJ7Rq7cjtYI="
+                    class="slide-image">
+
+                <div class="slide-text">
+                    <h2>LA GALERIE</h2>
+                    <p>Revivez notre inauguration !</p>
                 </div>
             </div>
 
             <div class="swiper-slide">
                 <img src="https://c8.alamy.com/comp/2M4DRHX/aberdeens-jack-mackenzie-and-rangers-scott-wright-during-the-cinch-premiership-match-at-pittodrie-stadium-aberdeen-picture-date-tuesday-december-20-2022-2M4DRHX.jpg"
                     alt="Pastries" class="slide-image-fill">
+
+                <div class="slide-text">
+                    <h2>LA GALERIE</h2>
+                    <p>Revivez notre inauguration !</p>
+                </div>
             </div>
 
             <div class="swiper-slide">
                 <img src="https://www.thescottishsun.co.uk/wp-content/uploads/sites/2/2024/10/aberdeens-jack-mackenzie-action-william-932840304_e80bfa.jpg?strip=all&w=864"
                     alt="Cafe interior" class="slide-image-fill">
+
+                <div class="slide-text">
+                    <h2>LA GALERIE</h2>
+                    <p>Revivez notre inauguration !</p>
+                </div>
             </div>
 
             <div class="swiper-slide">
                 <img src="https://c8.alamy.com/comp/2R0CFHP/jack-mackenzie-professional-football-player-currently-playing-defender-for-the-scottish-premiership-club-aberdeen-image-taken-during-a-training-an-2R0CFHP.jpg"
                     alt="Matcha powder" class="slide-image-fill">
+
+                <div class="slide-text">
+                    <h2>LA GALERIE</h2>
+                    <p>Revivez notre inauguration !</p>
+                </div>
             </div>
 
         </div>
